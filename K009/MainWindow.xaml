@@ -7,6 +7,6 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <TextBlock Text="Lớp mình"/>
+        <TextBlock Text="Lớp mình Cập nhật 2"/>
     </Grid>
 </Window>
