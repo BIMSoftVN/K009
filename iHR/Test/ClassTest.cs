@@ -21,10 +21,134 @@ namespace iHR.Test
 
             int SoNguyen = 20;
             double SoThuc = SoNguyen;
-            int SoNguyen2 = SoThuc;
+            int SoNguyen2 = (int)SoThuc;
 
 
             Console.WriteLine(SoNguyen2);
+        }
+
+        enum Season
+        {
+            Spring = 100,
+            Summer = 200,
+            Autumn = 300,
+            Winter = 400
+        }
+
+        struct Point
+        {
+            public double X;
+            public double Y;
+        }
+
+
+        [Test]
+        public void TestVar()
+        {
+            //bool? IsSunny = null;
+
+            //double Sunny = Convert.ToDouble(IsSunny);
+
+
+            //char KyTu = 'T';
+            //string Chuoi = "Tôi là K";
+
+            //Season Mua = Season.Autumn;
+
+            //Point Diem1 = new Point { X = 100, Y = 200 };
+            //Point Diem2 = new Point { X = 200, Y = 500 };
+
+            //double x = 10;
+            //double y = 3;
+
+            //bool ss1 = false;
+            //bool ss2 = false;
+
+            //Console.WriteLine((!ss1));
+
+            //int Age = 16;
+
+            //if (Age>=18)
+            //{
+            //    Console.WriteLine("Đã đủ tuổi lái xe");
+            //}
+            //else if (Age >= 16)
+            //{
+            //    Console.WriteLine("Đủ tuổi tập xe");
+            //}
+            //else
+            //{
+            //    Console.WriteLine("Không đủ tuổi lái xe");
+            //}   
+
+
+            //string DayOfWeek = "Thursday";
+
+
+            //switch (DayOfWeek)
+            //{
+            //    case "Monday":
+            //        Console.WriteLine("Đầu tuần");
+            //        break;
+            //    case "Tuesday":
+            //    case "Wednesday":
+            //    case "Thursday":
+            //    case "Friday":
+            //        Console.WriteLine("Ngày trong tuần");
+            //        break;
+            //    case "Saturday":
+            //    case "Sunday":
+            //        Console.WriteLine("Cuối tuần");
+            //        break;
+            //    default:
+            //        Console.WriteLine("Không xác định");
+            //        break;
+            //}
+
+
+            //for (long i = 1; i<=100;i+=2)
+            //{
+            //    Console.WriteLine("Lần thứ " + i);
+            //}
+
+            //string[] strings = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
+
+            //foreach (string s in strings)
+            //{
+            //    if (s == "Thursday")
+            //    {
+            //        break;
+            //    }
+
+            //    Console.WriteLine(s);
+            //}
+
+            Console.WriteLine(10>3);
+
+            //for (int i = 0; i < strings.Length; i++)
+            //{
+            //    Console.WriteLine(strings[i]);
+            //}
+
+            //Console.WriteLine("Lần thứ 1");
+            //Console.WriteLine("Lần thứ 2");
+            //Console.WriteLine("Lần thứ 3");
+            //Console.WriteLine("Lần thứ 4");
+            //Console.WriteLine("Lần thứ 5");
+
+            //int i = 1;
+
+            //while (i <= 10)
+            //{
+            //    if (i == 5)
+            //    {
+            //        i++;
+            //        break;
+            //    }
+
+            //    Console.WriteLine("Lần thứ " + i);
+            //    i++;
+            //} 
         }
     }
 }
