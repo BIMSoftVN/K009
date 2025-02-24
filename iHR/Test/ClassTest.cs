@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static iHR.Test.ChucNang;
 
 
 namespace iHR.Test
@@ -106,10 +107,10 @@ namespace iHR.Test
             //}
 
 
-            //for (long i = 1; i<=100;i+=2)
-            //{
-            //    Console.WriteLine("Lần thứ " + i);
-            //}
+            for (long i = 1; i <= 10; i += 1)
+            {
+                Console.WriteLine("Guid " + Guid.NewGuid().ToString());
+            }
 
             //string[] strings = new string[] { "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday" };
 
@@ -123,7 +124,7 @@ namespace iHR.Test
             //    Console.WriteLine(s);
             //}
 
-            Console.WriteLine(10>3);
+            Console.WriteLine(10 > 3);
 
             //for (int i = 0; i < strings.Length; i++)
             //{
@@ -150,5 +151,41 @@ namespace iHR.Test
             //    i++;
             //} 
         }
+
+        [Test]
+        public void TestMethod2()
+        {
+            int kWh = 250;
+            int[] levels = { 50, 100, 200, 300, 400 };
+            double[] prices = { 1806, 1866, 2167, 2729, 3050, 3151 };
+
+            var totalCost = CalculateElectricityBill(kWh, levels, prices);
+            Console.WriteLine($"Số tiền phải trả: {totalCost:N0} đồng");
+        }
+
     }
+
+    public static class ChucNang
+    {
+        public static double CalculateElectricityBill(int kWh, int[] levels, double[] prices)
+        {
+            double totalCost = 0;
+            int previousLevel = 0;
+            int SoDienConLai = kWh;
+
+            for (int i = 0; i < levels.Length; i++)
+            {
+                if (SoDienConLai > 0)
+                {
+                    int SoDien = Math.Min((levels[i] - previousLevel) , SoDienConLai);
+                    totalCost += SoDien * prices[i];
+                    previousLevel = levels[i];
+                    SoDienConLai = SoDienConLai - SoDien;
+                }
+            }
+
+            return totalCost * 1.08;
+        }
+    }
+
 }

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "K009", "K009\K009.csproj", 
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iHR", "iHR\iHR.csproj", "{7AAB8D77-3EBC-45AF-AB04-5029C74B0C75}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "iHRM", "iHRM\iHRM.csproj", "{EB750D5E-03C6-4FFB-BF1A-754A967B7DC6}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{7AAB8D77-3EBC-45AF-AB04-5029C74B0C75}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{7AAB8D77-3EBC-45AF-AB04-5029C74B0C75}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{7AAB8D77-3EBC-45AF-AB04-5029C74B0C75}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EB750D5E-03C6-4FFB-BF1A-754A967B7DC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EB750D5E-03C6-4FFB-BF1A-754A967B7DC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EB750D5E-03C6-4FFB-BF1A-754A967B7DC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EB750D5E-03C6-4FFB-BF1A-754A967B7DC6}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
