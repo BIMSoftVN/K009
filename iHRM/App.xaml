@@ -4,6 +4,6 @@
              xmlns:local="clr-namespace:iHRM"
              StartupUri="/View/vSignIn.xaml">
     <Application.Resources>
-         
+        <ResourceDictionary Source="Style.xaml"/>
     </Application.Resources>
 </Application>

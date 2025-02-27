@@ -5,16 +5,17 @@
     xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
     xmlns:local="clr-namespace:iHRM.View"
     xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+    xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
     Title="vSignIn"
-    Width="600"
-    Height="400"
     AllowsTransparency="True"
     Background="Transparent"
+    SizeToContent="WidthAndHeight"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     mc:Ignorable="d">
 
-    <Grid>
+
+    <Grid Width="600" Height="400">
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*" />
             <ColumnDefinition Width="1*" />
@@ -22,130 +23,137 @@
 
         <Border CornerRadius="20,0,0,20">
             <Border.Background>
-                <ImageBrush ImageSource="/Photo/bg2.jpg" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="/Photo/bg1.jpg" Stretch="UniformToFill" />
             </Border.Background>
 
             <Grid>
                 <Border CornerRadius="20,0,0,20">
                     <Border.Background>
                         <LinearGradientBrush Opacity="0.8" StartPoint="0.5,0" EndPoint="0.5,1">
-                            <GradientStop Color="#F26522" />
+                            <GradientStop Color="{StaticResource Color_00}" />
                             <GradientStop Offset="1" Color="#006536" />
                         </LinearGradientBrush>
                     </Border.Background>
                 </Border>
 
-                <StackPanel Margin="10,50,10,10">
-                    <TextBlock
+                <StackPanel Margin="40,50,40,0">
+
+                    <Image
+                        Width="100"
+                        Height="100"
+                        Margin="0,0,0,20"
                         HorizontalAlignment="Center"
+                        Source="/Photo/icon.png" />
+
+                    <TextBlock
+                        FontSize="16"
                         Foreground="White"
-                        Text="Welcome to" 
-                        FontSize="20"
-                        FontWeight="Bold"/>
-
-                    <Border Width="100" Height="100"
-                            Margin="10"
-                            CornerRadius=" 50"
-                            BorderThickness="1"
-                            BorderBrush="White">
-                        <Border.Background>
-                            <ImageBrush ImageSource="/Photo/avt.jpg" Stretch="UniformToFill"/>
-                        </Border.Background>
-                    </Border>
+                        Text="Bạn chưa có tài khoản?" />
 
                     <TextBlock
-    HorizontalAlignment="Center"
-    Foreground="White"
-    Text="Welcome to" 
-    FontSize="20"
-    FontWeight="Bold"/>
+                        Margin="0,10,0,0"
+                        FontSize="25"
+                        FontWeight="Bold"
+                        Foreground="White"
+                        Text="ĐĂNG KÝ NGAY!">
+                        <TextBlock.Effect>
+                            <DropShadowEffect
+                                BlurRadius="20"
+                                ShadowDepth="0"
+                                Color="{StaticResource Color_00}" />
+                        </TextBlock.Effect>
+                    </TextBlock>
 
                     <TextBlock
-    HorizontalAlignment="Center"
-    Foreground="White"
-    Text="Welcome to" 
-    FontSize="20"
-    FontWeight="Bold"/>
+                        Margin="0,5,0,0"
+                        FontSize="13"
+                        Foreground="White"
+                        Text="Nếu bạn chưa có tài khoản, vui lòng liên hệ số điện thoai ..., hoặc website www.bimsoft.vn"
+                        TextWrapping="Wrap" />
                 </StackPanel>
 
-               
+
+                <Grid Margin="30" VerticalAlignment="Bottom">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="1*" />
+                        <ColumnDefinition Width="1*" />
+                    </Grid.ColumnDefinitions>
+
+                    <TextBlock
+                        Margin="5"
+                        HorizontalAlignment="Right"
+                        Foreground="White"
+                        Text="Tiếng Việt" />
+
+                    <TextBlock
+                        Grid.Column="1"
+                        Margin="5"
+                        HorizontalAlignment="Left"
+                        Foreground="White"
+                        Text="English" />
+                </Grid>
 
             </Grid>
         </Border>
 
         <Border Grid.Column="1" CornerRadius="0,20,20,0">
             <Border.Background>
-                <ImageBrush ImageSource="/Photo/bg1.jpg" Stretch="UniformToFill" />
+                <ImageBrush ImageSource="/Photo/bg2.jpg" Stretch="UniformToFill" />
             </Border.Background>
+
+            <Grid>
+                <Button
+                    Width="25"
+                    Height="25"
+                    Margin="10"
+                    HorizontalAlignment="Right"
+                    VerticalAlignment="Top">
+                    <Button.Template>
+                        <ControlTemplate TargetType="Button">
+                            <md:PackIcon
+                                Width="25"
+                                Height="25"
+                                HorizontalAlignment="Center"
+                                VerticalAlignment="Center"
+                                Foreground="{StaticResource Brush_00}"
+                                Kind="CloseBox" />
+                        </ControlTemplate>
+                    </Button.Template>
+                </Button>
+
+                <StackPanel Margin="30,40,30,40">
+                    <Border
+                        Width="100"
+                        Height="100"
+                        BorderBrush="Orange"
+                        BorderThickness="1"
+                        CornerRadius="50">
+                        <Border.Background>
+                            <ImageBrush ImageSource="/Photo/avt.jpg" />
+                        </Border.Background>
+                    </Border>
+
+                    <TextBox
+                        Margin="0,30,0,0"
+                        md:HintAssist.Hint="Email"
+                        Style="{StaticResource MaterialDesignOutlinedTextBox}" />
+
+                    <PasswordBox
+                        Margin="0,10,0,0"
+                        md:HintAssist.Hint="Mật khẩu"
+                        Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" />
+
+                    <Button
+                        Margin="0,20,0,0"
+                        md:ButtonProgressAssist.IsIndeterminate="True"
+                        md:ButtonProgressAssist.IsIndicatorVisible="True"
+                        md:ButtonProgressAssist.Value="-1"
+                        Content="Đăng nhập"
+                        Style="{StaticResource MaterialDesignRaisedButton}" />
+
+                </StackPanel>
+
+            </Grid>
         </Border>
-        <!--<Grid.RowDefinitions>
-            <RowDefinition Height="1*"/>
-            <RowDefinition Height="1*"/>
-        </Grid.RowDefinitions>
-        <Grid.ColumnDefinitions>
-            <ColumnDefinition Width="1*"/>
-            <ColumnDefinition Width="1.2*"/>
-        </Grid.ColumnDefinitions>
-
-        <Button Grid.Column="0" Grid.Row="0"/>-->
-
-
-
-        <!--<Canvas Width="500" Height="500">
-            <Rectangle
-                Width="220"
-                Height="300"
-                Fill="LightGray" />
-
-            <Ellipse
-                Canvas.Left="30"
-                Canvas.Top="20"
-                Width="25"
-                Height="25"
-                Fill="Red" />
-
-            <Ellipse
-                Canvas.Left="175"
-                Canvas.Top="20"
-                Width="25"
-                Height="25"
-                Fill="Red" />
-
-            <Ellipse
-                Canvas.Left="25"
-                Canvas.Top="60"
-                Width="25"
-                Height="25"
-                Fill="Red" />
-        </Canvas>-->
-
-        <!--<DockPanel>
-            <Button DockPanel.Dock="Left" Content="Trái"/>
-            <Button DockPanel.Dock="Top" Content="Trên"/>
-            <Button DockPanel.Dock="Right" Content="Phải"/>
-            <Button DockPanel.Dock="Bottom" Content="Dưới"/>
-            <Button Content="Giữa"/>
-        </DockPanel>-->
-
-        <!--<WrapPanel Orientation="Vertical">
-            <Button Content="Nút 1"/>
-            <Button Content="Nút 2"/>
-            <Button Content="Nút 3"/>
-            <Button Content="Nút 4"/>
-            <Button Content="Nút 5"/>
-            <Button Content="Nút 6"/>
-            <Button Content="Nút 7"/>
-            <Button Content="Nút 8"/>
-        </WrapPanel>-->
-
-        <!--<StackPanel>
-            <Button Content="Nút 1" Width="100" Height="40" Margin="5"/>
-            <Button Content="Nút 1" Width="100" Height="40"  Margin="5"/>
-            <Button Content="Nút 1" Width="100" Height="40"  Margin="5"/>
-            <Button Content="Nút 1" Width="100" Height="40" Margin="5"/>
-            <Button Content="Nút 1" Width="100" Height="40" Margin="5"/>
-            <Button Content="Nút 1" Width="100" Height="40" Margin="5"/>
-            <Button Content="Nút 1" Width="100" Height="40" Margin="5"/>
-        </StackPanel>-->
     </Grid>
 </Window>
