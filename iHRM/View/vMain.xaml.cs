@@ -22,6 +22,8 @@ namespace iHRM.View
         public vMain()
         {
             InitializeComponent();
+            var vSignIn = new vSignIn();
+            vSignIn.ShowDialog();
         }
     }
 }

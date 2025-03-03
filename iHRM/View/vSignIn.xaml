@@ -9,10 +9,20 @@
     Title="vSignIn"
     AllowsTransparency="True"
     Background="Transparent"
+    Closing="Window_Closing"
+    MouseDown="Window_MouseDown"
     SizeToContent="WidthAndHeight"
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
+    x:Name="HostWin"
+    xmlns:vm="clr-namespace:iHRM.ViewModel"
     mc:Ignorable="d">
+
+    
+    
+    <Window.DataContext>
+        <vm:vmSignIn/>
+    </Window.DataContext>
 
 
     <Grid Width="600" Height="400">
@@ -107,7 +117,8 @@
                     Height="25"
                     Margin="10"
                     HorizontalAlignment="Right"
-                    VerticalAlignment="Top">
+                    VerticalAlignment="Top"
+                    Click="Close_Click">
                     <Button.Template>
                         <ControlTemplate TargetType="Button">
                             <md:PackIcon
@@ -133,12 +144,22 @@
                         </Border.Background>
                     </Border>
 
+
                     <TextBox
-                        Margin="0,30,0,0"
+                        x:Name="txtEmail"
                         md:HintAssist.Hint="Email"
+                        Text="{Binding Email, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+                        Margin="{Binding Margin, ElementName=txtPassword}" 
                         Style="{StaticResource MaterialDesignOutlinedTextBox}" />
 
+                    <TextBlock
+                        Margin="0,5,0,0"
+                        Foreground="Red"
+                        Text="{Binding Email, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}" />
+
+
                     <PasswordBox
+                        x:Name="txtPassword"
                         Margin="0,10,0,0"
                         md:HintAssist.Hint="Mật khẩu"
                         Style="{StaticResource MaterialDesignOutlinedRevealPasswordBox}" />
@@ -148,8 +169,10 @@
                         md:ButtonProgressAssist.IsIndeterminate="True"
                         md:ButtonProgressAssist.IsIndicatorVisible="True"
                         md:ButtonProgressAssist.Value="-1"
+                        Command="{Binding Cmd_SignIn}"
                         Content="Đăng nhập"
-                        Style="{StaticResource MaterialDesignRaisedButton}" />
+                        Style="{StaticResource MaterialDesignRaisedButton}"
+                        CommandParameter="{x:Reference HostWin}"/>
 
                 </StackPanel>
 

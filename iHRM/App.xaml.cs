@@ -13,5 +13,6 @@ namespace iHRM
     /// </summary>
     public partial class App : Application
     {
+
     }
 }
