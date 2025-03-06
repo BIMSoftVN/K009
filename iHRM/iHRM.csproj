@@ -69,9 +69,15 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Compile Include="Classes\clChatInfo.cs" />
+    <Compile Include="Model\mGoogle.cs" />
     <Compile Include="ViewModel\Class1.cs" />
     <Compile Include="ViewModel\clNguoi.cs" />
+    <Compile Include="ViewModel\vmGoogleDich.cs" />
     <Compile Include="ViewModel\vmSignIn.cs" />
+    <Compile Include="View\vGoogleDich.xaml.cs">
+      <DependentUpon>vGoogleDich.xaml</DependentUpon>
+    </Compile>
     <Compile Include="View\vMain.xaml.cs">
       <DependentUpon>vMain.xaml</DependentUpon>
     </Compile>
@@ -83,6 +89,10 @@
       <DependentUpon>vSignIn.xaml</DependentUpon>
     </Compile>
     <Page Include="Style.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\vGoogleDich.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -135,6 +145,11 @@
   <ItemGroup>
     <Resource Include="Photo\icon.png" />
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\K009Libs\K009Libs.csproj">
+      <Project>{0fd18a62-385c-402a-b5f7-46fdb3234df9}</Project>
+      <Name>K009Libs</Name>
+    </ProjectReference>
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
