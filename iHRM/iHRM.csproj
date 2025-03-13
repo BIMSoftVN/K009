@@ -76,7 +76,8 @@
     <Compile Include="Classes\clChatInfo.cs" />
     <Compile Include="Classes\clProject.cs" />
     <Compile Include="Classes\clWeatherInfo.cs" />
-    <Compile Include="Converter\ImagePathToBitmapConverter.cs" />
+    <Compile Include="Converter\DanhGiaNhietDoConverter.cs" />
+    <Compile Include="Converter\IconNameToImageSouceConverter.cs" />
     <Compile Include="Model\mGoogle.cs" />
     <Compile Include="Model\mProject.cs" />
     <Compile Include="Model\mWeather.cs" />
@@ -101,6 +102,9 @@
     <Compile Include="View\vWeather.xaml.cs">
       <DependentUpon>vWeather.xaml</DependentUpon>
     </Compile>
+    <Compile Include="View\Window1.xaml.cs">
+      <DependentUpon>Window1.xaml</DependentUpon>
+    </Compile>
     <Page Include="Style.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -118,6 +122,10 @@
       <Generator>MSBuild:Compile</Generator>
     </Page>
     <Page Include="View\vWeather.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="View\Window1.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -167,6 +175,26 @@
       <Project>{0fd18a62-385c-402a-b5f7-46fdb3234df9}</Project>
       <Name>K009Libs</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Photo\WeatherIcon\01d.png" />
+    <Resource Include="Photo\WeatherIcon\01n.png" />
+    <Resource Include="Photo\WeatherIcon\02d.png" />
+    <Resource Include="Photo\WeatherIcon\02n.png" />
+    <Resource Include="Photo\WeatherIcon\03d.png" />
+    <Resource Include="Photo\WeatherIcon\03n.png" />
+    <Resource Include="Photo\WeatherIcon\04d.png" />
+    <Resource Include="Photo\WeatherIcon\04n.png" />
+    <Resource Include="Photo\WeatherIcon\09d.png" />
+    <Resource Include="Photo\WeatherIcon\09n.png" />
+    <Resource Include="Photo\WeatherIcon\10d.png" />
+    <Resource Include="Photo\WeatherIcon\10n.png" />
+    <Resource Include="Photo\WeatherIcon\11d.png" />
+    <Resource Include="Photo\WeatherIcon\11n.png" />
+    <Resource Include="Photo\WeatherIcon\13d.png" />
+    <Resource Include="Photo\WeatherIcon\13n.png" />
+    <Resource Include="Photo\WeatherIcon\50d.png" />
+    <Resource Include="Photo\WeatherIcon\50n.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -45,8 +45,10 @@ namespace iHRM.Model
                         tt.wNhietDo = double.Parse(JItem["main"]["temp"].ToString());
                         tt.wGio = double.Parse(JItem["wind"]["speed"].ToString());
 
-                        string imageUrl = @"https://openweathermap.org/img/w/" + JItem["weather"][0]["icon"].ToString() + ".png";
-                        tt.wImage = imageUrl;
+                        tt.wImage = JItem["weather"][0]["icon"].ToString();
+
+                        //string imageUrl = @"https://openweathermap.org/img/w/" + JItem["weather"][0]["icon"].ToString() + ".png";
+                        //tt.wImage = imageUrl;
                         //tt.wImage = await client.GetByteArrayAsync(new Uri(imageUrl));
 
                         plist.Add(tt);

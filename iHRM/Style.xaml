@@ -1,4 +1,9 @@
-﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml">
+﻿<ResourceDictionary 
+    xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation" 
+    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+    xmlns:cvt="clr-namespace:iHRM.Converter">
+
+
     <Color x:Key="Color_00">#F26522</Color>
     <Color x:Key="Color_01">#006536</Color>
     <SolidColorBrush x:Key="Brush_00" Color="{StaticResource Color_00}" />
