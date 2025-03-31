@@ -99,8 +99,21 @@ namespace NhanSu.Classes
             }
         }
 
-        
-       
+
+        private string _Address = null;
+        public string Address
+        {
+            get
+            {
+                return _Address;
+            }
+            set
+            {
+                _Address = value;
+                OnPropertyChanged();
+            }
+        }
+
 
     }
 }

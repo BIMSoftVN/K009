@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DevExpress.Xpf.WindowsUI;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -24,6 +25,21 @@ namespace NhanSu.Views
             InitializeComponent();
             var win = new vSignIn();
             win.ShowDialog();
+        }
+
+        private void HamburgerMenuBottomBarNavigationButton_PreviewMouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            var button = sender as HamburgerMenuBottomBarNavigationButton;
+            if (button != null && button.ContextMenu !=null)
+            {
+                button.ContextMenu.PlacementTarget = button;
+                button.ContextMenu.IsOpen = true;
+            }
+        }
+
+        private void MenuItem_Click(object sender, RoutedEventArgs e)
+        {
+            Application.Current.Shutdown();
         }
     }
 }

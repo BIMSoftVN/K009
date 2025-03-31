@@ -44,5 +44,31 @@ namespace NhanSu.Models
 
             return (IsSuccess, message, user_Out);
         }
+
+        public static async Task<(bool IsSuccess, string Message, clUser User)> GetUserById(string UserId)
+        {
+            bool IsSuccess = false;
+            string message = null;
+            clUser user_Out = null;
+
+
+            using (var context = new EF6(GlobalVar.ConnString))
+            {
+                var user = await context.Users.Where(u => u.Id == UserId).AsNoTracking().FirstOrDefaultAsync();
+                if (user != null)
+                {
+                    IsSuccess = true;
+                    user_Out = user;
+                }
+                else
+                {
+                    IsSuccess = false;
+                    message = "Tài khoản không tồn tại";
+                }
+            }
+
+
+            return (IsSuccess, message, user_Out);
+        }
     }
 }

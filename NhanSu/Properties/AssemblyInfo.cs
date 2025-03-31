@@ -7,12 +7,12 @@ using System.Windows;
 // General Information about an assembly is controlled through the following
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("NhanSu")]
-[assembly: AssemblyDescription("")]
+[assembly: AssemblyTitle("iHRM")]
+[assembly: AssemblyDescription("Phần mêm quản lý Nhân Sự")]
 [assembly: AssemblyConfiguration("")]
-[assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("NhanSu")]
-[assembly: AssemblyCopyright("Copyright ©  2025")]
+[assembly: AssemblyCompany("K009 Co.,Ltd")]
+[assembly: AssemblyProduct("iHRM")]
+[assembly: AssemblyCopyright("Copyright © 2025")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 
@@ -49,4 +49,5 @@ using System.Windows;
 //      Revision
 //
 [assembly: AssemblyVersion("1.0.0.0")]
-[assembly: AssemblyFileVersion("1.0.0.0")]
+[assembly: AssemblyFileVersion("1.25.03.31")]
+[assembly: Guid("f97caf90-b273-4dec-a65e-0f8a50e49e6c")]

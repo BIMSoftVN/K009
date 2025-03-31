@@ -1,12 +1,91 @@
-﻿<Window x:Class="NhanSu.Views.vMain"
+﻿<Window xmlns:dxwui="http://schemas.devexpress.com/winfx/2008/xaml/windowsui"  x:Class="NhanSu.Views.vMain"
         xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
         xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
         xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:NhanSu.Views"
         mc:Ignorable="d"
-        Title="vMain" Height="450" Width="800">
+        Height="450" Width="800"
+        xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+        dx:ThemeManager.ThemeName="Win11Light"
+        xmlns:classes="clr-namespace:NhanSu.Classes"
+        xmlns:md="http://materialdesigninxaml.net/winfx/xaml/themes"
+        xmlns:vm="clr-namespace:NhanSu.ViewModels"
+        WindowState="Maximized">
+
+    <Window.DataContext>
+        <vm:vmMain/>
+    </Window.DataContext>
+
+        <Window.Title>
+        <MultiBinding StringFormat="{}{0} - (Phiên bản : {1})">
+            <Binding Path="AppName" Source="{x:Static classes:GlobalVar.MainApp}"/>
+            <Binding Path="AppVersion" Source="{x:Static classes:GlobalVar.MainApp}"/>
+        </MultiBinding>
+    </Window.Title>
+    
     <Grid>
-        
+        <dxwui:HamburgerMenu AvailableViewStates="Overlay"
+                             Background="Transparent"
+                             HorizontalHeaderBackground="Transparent"
+                             Header="{Binding AppName, Source={x:Static classes:GlobalVar.MainApp}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"
+                             HeaderFontSize="18"
+                             BottomBarBackground="{StaticResource MainBrush}"
+                             PaneBackground="{StaticResource SubBrush}">
+            <dxwui:HamburgerMenu.BottomBarItems>
+                <dxwui:HamburgerMenuBottomBarNavigationButton 
+                    ToolTip="Cài đặt"
+                    PreviewMouseLeftButtonDown="HamburgerMenuBottomBarNavigationButton_PreviewMouseLeftButtonDown">
+                    <dxwui:HamburgerMenuBottomBarNavigationButton.GlyphTemplate>
+                        <DataTemplate>
+                            <md:PackIcon Kind="Settings" Foreground="White" Width="24" Height="24"/>
+                        </DataTemplate>
+                    </dxwui:HamburgerMenuBottomBarNavigationButton.GlyphTemplate>
+
+
+                    <dxwui:HamburgerMenuBottomBarNavigationButton.ContextMenu>
+                        <ContextMenu>
+                            <MenuItem Header="Thông tin tài khoản"
+                                      Command="{Binding Cmd_OpenAccInfo}">
+                                <MenuItem.Icon>
+                                    <md:PackIcon Kind="Account" Foreground="Black"/>
+                                 </MenuItem.Icon>
+                            </MenuItem>
+                            <MenuItem Header="Cài đặt">
+                                <MenuItem.Icon>
+                                    <md:PackIcon Kind="Settings" Foreground="Black"/>
+                                </MenuItem.Icon>
+                            </MenuItem>
+                            
+                            <Separator/>
+
+                            <MenuItem Header="Đăng xuất" Foreground="Red"
+                                      Command="{Binding Cmd_DangXuat}"/>
+
+                            <MenuItem Header="Thoát"
+                                      Click="MenuItem_Click"/>
+                        </ContextMenu>
+                    </dxwui:HamburgerMenuBottomBarNavigationButton.ContextMenu>
+                
+                </dxwui:HamburgerMenuBottomBarNavigationButton>
+            </dxwui:HamburgerMenu.BottomBarItems>
+            
+            
+            <dxwui:HamburgerMenu.Content>
+                <Grid>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="Auto"/>
+                        <RowDefinition Height="1*"/>
+                    </Grid.RowDefinitions>
+                    <Border Background="{DynamicResource MainBrush}" Grid.Row="0">
+                        <TextBlock HorizontalAlignment="Left" Text="Tiêu đề" Foreground="White" FontSize="20" VerticalAlignment="Center"/>
+                    </Border>
+
+                    <Frame>
+                        
+                    </Frame>
+                </Grid>
+            </dxwui:HamburgerMenu.Content>
+        </dxwui:HamburgerMenu>
     </Grid>
 </Window>

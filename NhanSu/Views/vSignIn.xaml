@@ -15,7 +15,8 @@
     WindowStartupLocation="CenterScreen"
     WindowStyle="None"
     MouseDown="Window_MouseDown"
-    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
+    xmlns:dx="http://schemas.devexpress.com/winfx/2008/xaml/core" 
+    xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     dx:ThemeManager.ThemeName="Win11Light"
     mc:Ignorable="d"
     xmlns:vm="clr-namespace:NhanSu.ViewModels">

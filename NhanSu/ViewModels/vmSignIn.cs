@@ -91,6 +91,8 @@ namespace NhanSu.ViewModels
                     Properties.Settings.Default.Password = Password;
                     Properties.Settings.Default.Save();
 
+                    Classes.GlobalVar.MainUser = kq.User;
+
                     (parameter as Window).Hide();
                 }
 
