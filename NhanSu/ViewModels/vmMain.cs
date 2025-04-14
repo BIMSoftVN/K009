@@ -9,12 +9,26 @@ using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows;
+using System.Windows.Controls;
 using System.Windows.Input;
 
 namespace NhanSu.ViewModels
 {
     public class vmMain : PropertyChangedBase
     {
+        private Page _MFContent;
+        public Page MFContent
+        {
+            get { return _MFContent; }
+            set
+            {
+                _MFContent = value;
+                OnPropertyChanged();
+            }
+        }
+
+
+
 
         private ActionCommand cmd_DangXuat;
 
@@ -59,6 +73,66 @@ namespace NhanSu.ViewModels
         {
             var win = new vAccInfo();
             win.ShowDialog();
+        }
+
+
+
+
+
+        private ActionCommand cmd_OpenPage;
+        public ICommand Cmd_OpenPage
+        {
+            get
+            {
+                if (cmd_OpenPage == null)
+                {
+                    cmd_OpenPage = new ActionCommand(PerformCmd_OpenPage);
+                }
+
+                return cmd_OpenPage;
+            }
+        }
+
+        private void PerformCmd_OpenPage(object parameter)
+        {
+            string pageName = parameter as string;
+            switch (pageName) 
+            {
+                case "pQuanTri":
+                    {
+                        MFContent = new pQuanTri();
+                    }
+                    break;
+
+                case "pNhanSu":
+                    {
+                        MFContent = new pNhanSu();
+                    }
+                    break;
+
+                default:
+                    break;
+            }
+        }
+
+        private ActionCommand cmd_LoadAll;
+
+        public ICommand Cmd_LoadAll
+        {
+            get
+            {
+                if (cmd_LoadAll == null)
+                {
+                    cmd_LoadAll = new ActionCommand(PerformCmd_LoadAll);
+                }
+
+                return cmd_LoadAll;
+            }
+        }
+
+        private void PerformCmd_LoadAll()
+        {
+            MFContent = new pNhanSu();
         }
     }
 }

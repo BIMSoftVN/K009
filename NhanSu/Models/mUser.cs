@@ -111,5 +111,35 @@ namespace NhanSu.Models
 
             return (IsSuccess, message);
         }
+
+
+        public static async Task<(bool IsSuccess, string Message, List<clUser> UserList)> GetAllUser()
+        {
+            bool IsSuccess = false;
+            string message = null;
+            List<clUser> user_Out = null;
+
+
+            using (var context = new EF6(GlobalVar.ConnString))
+            {
+                var user = await context.Users.AsNoTracking().ToListAsync();
+                if (user != null)
+                {
+                    IsSuccess = true;
+                    message = "Đã lấy dữ liệu";
+                    user_Out = user;
+                }
+                else
+                {
+                    IsSuccess = false;
+                    message = "Không có dữ liệu";
+                }
+            }
+
+
+            return (IsSuccess, message, user_Out);
+        }
+
+
     }
 }

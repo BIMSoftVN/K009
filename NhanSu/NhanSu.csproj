@@ -368,7 +368,14 @@
     <Compile Include="Models\Test.cs" />
     <Compile Include="ViewModels\vmAccInfo.cs" />
     <Compile Include="ViewModels\vmMain.cs" />
+    <Compile Include="ViewModels\vmNhanSu.cs" />
     <Compile Include="ViewModels\vmSignIn.cs" />
+    <Compile Include="Views\pNhanSu.xaml.cs">
+      <DependentUpon>pNhanSu.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="Views\pQuanTri.xaml.cs">
+      <DependentUpon>pQuanTri.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Views\vAccInfo.xaml.cs">
       <DependentUpon>vAccInfo.xaml</DependentUpon>
     </Compile>
@@ -383,6 +390,14 @@
       <DependentUpon>vSignIn.xaml</DependentUpon>
     </Compile>
     <Page Include="Res01.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\pNhanSu.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Views\pQuanTri.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -457,7 +472,7 @@
   <Import Project="..\packages\EntityFramework.6.5.1\build\EntityFramework.targets" Condition="Exists('..\packages\EntityFramework.6.5.1\build\EntityFramework.targets')" />
   <ProjectExtensions>
     <VisualStudio>
-      <UserProperties Reactor_Enabled="0" Reactor_Deploy="0" Reactor_Commands="&quot;C:\Program Files (x86)\Eziriz\.NET Reactor\dotNET_Reactor.Console.exe&quot; -antitamp 1 -anti_debug 1 -control_flow 1 -flow_level 9 -resourceencryption 1 -antistrong 1 -virtualization 1 -necrobit 1 -copy_pdb 0" Reactor_Project="" Reactor_Configuration="Debug" Reactor_Output="&lt;AssemblyLocation&gt;\&lt;AssemblyFileName&gt;" />
+      <UserProperties Reactor_Output="&lt;AssemblyLocation&gt;\&lt;AssemblyFileName&gt;" Reactor_Configuration="Debug" Reactor_Project="" Reactor_Commands="&quot;C:\Program Files (x86)\Eziriz\.NET Reactor\dotNET_Reactor.Console.exe&quot; -antitamp 1 -anti_debug 1 -control_flow 1 -flow_level 9 -resourceencryption 1 -antistrong 1 -virtualization 1 -necrobit 1 -copy_pdb 0" Reactor_Deploy="0" Reactor_Enabled="0" />
     </VisualStudio>
   </ProjectExtensions>
 </Project>
