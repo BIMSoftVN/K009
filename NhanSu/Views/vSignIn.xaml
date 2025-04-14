@@ -19,12 +19,19 @@
     xmlns:dxe="http://schemas.devexpress.com/winfx/2008/xaml/editors"
     dx:ThemeManager.ThemeName="Win11Light"
     mc:Ignorable="d"
-    xmlns:vm="clr-namespace:NhanSu.ViewModels">
+    xmlns:classes="clr-namespace:NhanSu.Classes"
+    xmlns:vm="clr-namespace:NhanSu.ViewModels" xmlns:b="http://schemas.microsoft.com/xaml/behaviors">
 
     <Window.DataContext>
         <vm:vmSignIn />
     </Window.DataContext>
-    
+
+    <b:Interaction.Triggers>
+        <b:EventTrigger EventName="Loaded">
+            <b:InvokeCommandAction Command="{Binding Cmd_LoadAll}" />
+        </b:EventTrigger>
+    </b:Interaction.Triggers>
+
     <Grid>
         <Grid>
             <Grid.ColumnDefinitions>
@@ -98,7 +105,9 @@
                                 Margin="0,0,0,20" CornerRadius="40"
                                 BorderThickness="1"
                                 BorderBrush="{StaticResource MainBrush}">
-                            
+                            <Border.Background>
+                                <ImageBrush ImageSource="{Binding Photo, Source={x:Static classes:GlobalVar.MainUser}, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}"/>
+                            </Border.Background>
                         </Border>
                         
                         

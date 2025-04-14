@@ -44,7 +44,6 @@ namespace NhanSu.Models
 
             return (IsSuccess, message, user_Out);
         }
-
         public static async Task<(bool IsSuccess, string Message, clUser User)> GetUserById(string UserId)
         {
             bool IsSuccess = false;
@@ -69,6 +68,48 @@ namespace NhanSu.Models
 
 
             return (IsSuccess, message, user_Out);
+        }
+
+        public static async Task<(bool IsSuccess, string Message)> SaveUserData(clUser user)
+        {
+            bool IsSuccess = false;
+            string message = null;
+
+
+            using (var context = new EF6(GlobalVar.ConnString))
+            {
+                var userServer = await context.Users.Where(u => u.Id == user.Id).FirstOrDefaultAsync();
+
+                if (userServer != null)
+                {
+                    userServer.PhoneNumber = user.PhoneNumber;
+                    userServer.DateOfBirth = user.DateOfBirth;
+                    userServer.Address = user.Address;
+                    userServer.Email = user.Email;
+                    userServer.Name = user.Name;
+                    userServer.Photo = user.Photo;
+
+                    var kq = await context.SaveChangesAsync();
+                    if (kq > 0)
+                    {
+                        IsSuccess = true;
+                        message = "Cập nhật thành công";
+                    }
+                    else
+                    {
+                        IsSuccess = false;
+                        message = "Không thể sửa thông tin";
+                    }
+                }
+                else
+                {
+                    IsSuccess = false;
+                    message = "Người dùng không tồn tại";
+                }
+            }
+
+
+            return (IsSuccess, message);
         }
     }
 }

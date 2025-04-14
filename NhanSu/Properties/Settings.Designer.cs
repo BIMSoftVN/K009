@@ -46,5 +46,17 @@ namespace NhanSu.Properties {
                 this["Password"] = value;
             }
         }
+        
+        [global::System.Configuration.UserScopedSettingAttribute()]
+        [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
+        [global::System.Configuration.DefaultSettingValueAttribute("")]
+        public string SaveData {
+            get {
+                return ((string)(this["SaveData"]));
+            }
+            set {
+                this["SaveData"] = value;
+            }
+        }
     }
 }

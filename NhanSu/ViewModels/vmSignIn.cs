@@ -3,6 +3,9 @@ using DevExpress.Mvvm;
 using K009Libs.MVVM;
 using MaterialDesignThemes.Wpf;
 using Microsoft.Xaml.Behaviors.Core;
+using Newtonsoft.Json;
+using Newtonsoft.Json.Linq;
+using NhanSu.Classes;
 using NhanSu.Models;
 using System;
 using System.Collections.Generic;
@@ -47,6 +50,9 @@ namespace NhanSu.ViewModels
         }
 
 
+
+
+
         private SnackbarMessageQueue _MessageQueue = new SnackbarMessageQueue();
         public SnackbarMessageQueue MessageQueue
         {
@@ -87,11 +93,14 @@ namespace NhanSu.ViewModels
 
                 if (kq.IsSuccess == true)
                 {
+                    Classes.GlobalVar.MainUser = kq.User;
+
                     Properties.Settings.Default.Email = Email;
                     Properties.Settings.Default.Password = Password;
-                    Properties.Settings.Default.Save();
 
-                    Classes.GlobalVar.MainUser = kq.User;
+                    Properties.Settings.Default.SaveData = JsonConvert.SerializeObject(Classes.GlobalVar.MainUser);
+
+                    Properties.Settings.Default.Save();
 
                     (parameter as Window).Hide();
                 }
@@ -103,6 +112,33 @@ namespace NhanSu.ViewModels
                 MessageQueue?.Enqueue(ex.Message, null, null, null, false, true, TimeSpan.FromSeconds(1));
             }
             
+        }
+
+        private ActionCommand cmd_LoadAll;
+
+        public ICommand Cmd_LoadAll
+        {
+            get
+            {
+                if (cmd_LoadAll == null)
+                {
+                    cmd_LoadAll = new ActionCommand(PerformCmd_LoadAll);
+                }
+
+                return cmd_LoadAll;
+            }
+        }
+
+        private void PerformCmd_LoadAll()
+        {
+            try
+            {
+                Classes.GlobalVar.MainUser.Photo = JToken.Parse(Properties.Settings.Default.SaveData).ToObject<clUser>().Photo;
+            }
+            catch
+            {
+
+            }
         }
     }
 }
