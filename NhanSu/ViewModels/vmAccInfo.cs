@@ -52,7 +52,7 @@ namespace NhanSu.ViewModels
         {
             try
             {
-               var kq = await mUser.GetUserById(Classes.GlobalVar.MainUser.Id);
+               var kq = await mUser.GetUserById(User.Id);
                if (kq.IsSuccess)
                 {
                     User = kq.User;

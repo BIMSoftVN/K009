@@ -58,7 +58,7 @@
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
                 FontSize="16"
-                Header="Thêm nhân sự">
+                Header="Thêm">
                 <MenuItem.Icon>
                     <md:PackIcon
                         Width="25"
@@ -66,13 +66,51 @@
                         HorizontalAlignment="Center"
                         VerticalAlignment="Center"
                         Foreground="Green"
-                        Kind="Add" />
+                        Kind="Refresh" />
                 </MenuItem.Icon>
+
+                <MenuItem
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding Cmd_AddUser}"
+                    FontSize="16"
+                    Header="Thêm nhân sự">
+                    <MenuItem.Icon>
+                        <md:PackIcon
+                            Width="25"
+                            Height="25"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="Green"
+                            Kind="Add" />
+                    </MenuItem.Icon>
+
+
+                </MenuItem>
+
+                <MenuItem
+                    HorizontalContentAlignment="Center"
+                    VerticalContentAlignment="Center"
+                    Command="{Binding Cmd_AddUserWindow}"
+                    FontSize="16"
+                    Header="Mở cửa sổ">
+                    <MenuItem.Icon>
+                        <md:PackIcon
+                            Width="25"
+                            Height="25"
+                            HorizontalAlignment="Center"
+                            VerticalAlignment="Center"
+                            Foreground="Green"
+                            Kind="Add" />
+                    </MenuItem.Icon>
+                </MenuItem>
             </MenuItem>
+
 
             <MenuItem
                 HorizontalContentAlignment="Center"
                 VerticalContentAlignment="Center"
+                Command="{Binding Cmd_DeleteUsers}"
                 FontSize="16"
                 Header="Xóa nhân sự">
                 <MenuItem.Icon>
@@ -85,24 +123,51 @@
                         Kind="Minus" />
                 </MenuItem.Icon>
             </MenuItem>
+
+            <MenuItem
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding Cmd_ExcelExport}"
+                FontSize="16"
+                Header="Xuất danh sách">
+                <MenuItem.Icon>
+                    <md:PackIcon
+                        Width="25"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="Green"
+                        Kind="MicrosoftExcel" />
+                </MenuItem.Icon>
+            </MenuItem>
         </Menu>
 
 
         <dxg:GridControl
             Grid.Row="1"
-            SelectionMode="MultipleRow"
             CurrentItem="{Binding UserItem, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
             ItemsSource="{Binding UserList}"
-            SelectedItems="{Binding UserSelect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}">
+            SelectedItems="{Binding UserSelect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            SelectionMode="MultipleRow">
 
             <dxg:GridControl.View>
                 <dxg:TableView
                     AutoWidth="False"
-                    ShowCheckBoxSelectorColumn="True"
                     SearchPanelHorizontalAlignment="Stretch"
                     SearchPanelPosition="OverGroupPanel"
+                    ShowCheckBoxSelectorColumn="True"
                     ShowGroupPanel="False"
                     ShowSearchPanelMode="Always">
+
+                    <b:Interaction.Triggers>
+                        <b:EventTrigger EventName="RowUpdated">
+                            <b:InvokeCommandAction Command="{Binding Cmd_EditRow}" PassEventArgsToCommand="True" />
+                        </b:EventTrigger>
+                        <b:EventTrigger EventName="MouseDoubleClick">
+                            <b:InvokeCommandAction Command="{Binding Cmd_EditRow2}" />
+                        </b:EventTrigger>
+                    </b:Interaction.Triggers>
+
                     <dxg:TableView.CellStyle>
                         <Style TargetType="dxg:LightweightCellEditor">
                             <Setter Property="Foreground" Value="Blue" />

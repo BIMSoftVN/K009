@@ -72,6 +72,7 @@ namespace NhanSu.ViewModels
         private void PerformCmd_OpenAccInfo()
         {
             var win = new vAccInfo();
+            ((vmAccInfo)win.DataContext).User = Classes.GlobalVar.MainUser;
             win.ShowDialog();
         }
 

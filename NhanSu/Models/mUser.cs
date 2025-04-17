@@ -78,6 +78,11 @@ namespace NhanSu.Models
 
             using (var context = new EF6(GlobalVar.ConnString))
             {
+                if (user.Id == null)
+                {
+                    user.Id = Guid.NewGuid().ToString();
+                }    
+
                 var userServer = await context.Users.Where(u => u.Id == user.Id).FirstOrDefaultAsync();
 
                 if (userServer != null)
@@ -87,31 +92,30 @@ namespace NhanSu.Models
                     userServer.Address = user.Address;
                     userServer.Email = user.Email;
                     userServer.Name = user.Name;
-                    userServer.Photo = user.Photo;
+                    userServer.Photo = user.Photo; 
+                }
+                else
+                {
+                    userServer = user;
+                    context.Users.Add(userServer);
+                }
 
-                    var kq = await context.SaveChangesAsync();
-                    if (kq > 0)
-                    {
-                        IsSuccess = true;
-                        message = "Cập nhật thành công";
-                    }
-                    else
-                    {
-                        IsSuccess = false;
-                        message = "Không thể sửa thông tin";
-                    }
+                var kq = await context.SaveChangesAsync();
+                if (kq > 0)
+                {
+                    IsSuccess = true;
+                    message = "Cập nhật thành công";
                 }
                 else
                 {
                     IsSuccess = false;
-                    message = "Người dùng không tồn tại";
+                    message = "Không thể sửa thông tin";
                 }
             }
 
 
             return (IsSuccess, message);
         }
-
 
         public static async Task<(bool IsSuccess, string Message, List<clUser> UserList)> GetAllUser()
         {
@@ -140,6 +144,37 @@ namespace NhanSu.Models
             return (IsSuccess, message, user_Out);
         }
 
+        public static async Task<(bool IsSuccess, string Message)> DeleteUsers(List<clUser> userList)
+        {
+            bool IsSuccess = false;
+            string message = null;
+
+
+            using (var context = new EF6(GlobalVar.ConnString))
+            {
+                var userIdList = userList.Select(u => u.Id).ToList();
+                var userServerList = await context.Users.Where(u => userIdList.Contains(u.Id)).ToListAsync();
+
+                if (userServerList != null && userServerList.Count>0)
+                {
+                    context.Users.RemoveRange(userServerList);
+                    var kq = await context.SaveChangesAsync();
+                    if (kq > 0)
+                    {
+                        IsSuccess = true;
+                        message = "Đã xóa " + kq + " đối tượng.";
+                    }
+                    else
+                    {
+                        IsSuccess = false;
+                        message = "Không thể xóa người dùng";
+                    }
+                } 
+            }
+
+
+            return (IsSuccess, message);
+        }
 
     }
 }

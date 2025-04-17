@@ -147,5 +147,7 @@
                 </Grid>
             </dxwui:HamburgerMenu.Content>
         </dxwui:HamburgerMenu>
+
+        <md:Snackbar Style="{StaticResource Snackbar_Main}"/>
     </Grid>
 </Window>
