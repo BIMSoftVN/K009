@@ -140,6 +140,57 @@
                         Kind="MicrosoftExcel" />
                 </MenuItem.Icon>
             </MenuItem>
+
+            <MenuItem
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding Cmd_ExcelImport}"
+                FontSize="16"
+                Header="Nhập danh sách">
+                <MenuItem.Icon>
+                    <md:PackIcon
+                        Width="25"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="Red"
+                        Kind="MicrosoftExcel" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding Cmd_ExcelExportCOM}"
+                FontSize="16"
+                Header="Xuất ExcelCOM">
+                <MenuItem.Icon>
+                    <md:PackIcon
+                        Width="25"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="Green"
+                        Kind="MicrosoftExcel" />
+                </MenuItem.Icon>
+            </MenuItem>
+
+            <MenuItem
+                HorizontalContentAlignment="Center"
+                VerticalContentAlignment="Center"
+                Command="{Binding Cmd_ExcelExportActive}"
+                FontSize="16"
+                Header="Xuất ActiveSheet">
+                <MenuItem.Icon>
+                    <md:PackIcon
+                        Width="25"
+                        Height="25"
+                        HorizontalAlignment="Center"
+                        VerticalAlignment="Center"
+                        Foreground="Red"
+                        Kind="MicrosoftExcel" />
+                </MenuItem.Icon>
+            </MenuItem>
         </Menu>
 
 
