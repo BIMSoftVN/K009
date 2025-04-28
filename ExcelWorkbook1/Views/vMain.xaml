@@ -1,0 +1,18 @@
+﻿<Window x:Class="ExcelWorkbook1.Views.vMain"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:ExcelWorkbook1.Views"
+             mc:Ignorable="d" 
+        Topmost="True"
+        Width="250" Height="300"
+        GotFocus="Window_GotFocus"
+        MouseLeave="Window_MouseLeave"
+        MouseEnter="Window_MouseEnter">
+    <Grid>
+        <Button Content="Button" HorizontalAlignment="Left" Margin="60,94,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.505,2.006"/>
+        <ComboBox HorizontalAlignment="Left" Margin="20,32,0,0" VerticalAlignment="Top" Width="120"/>
+        <TextBox x:Name="tb1" HorizontalAlignment="Left" Margin="20,66,0,0" TextWrapping="Wrap" Text="TextBox" VerticalAlignment="Top" Width="120"/>
+    </Grid>
+</Window>

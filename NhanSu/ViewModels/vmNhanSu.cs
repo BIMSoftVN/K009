@@ -495,7 +495,7 @@ namespace NhanSu.ViewModels
                     ws.Cells[1, "D"].Value = "Địa chỉ";
 
                     var cId = new List<int>();
-                    4,2,1,3
+
 
                     var lr = ws.Cells[ws.Rows.Count, 1].End[XlDirection.xlUp].Row();
                     long id = lr;
