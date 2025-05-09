@@ -17,6 +17,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelAddIn1", "ExcelAddIn1\
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "ExcelWorkbook1", "ExcelWorkbook1\ExcelWorkbook1.csproj", "{EE6C9898-11DA-4157-A621-3578097A7067}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AutoCADCOM", "AutoCADCOM\AutoCADCOM.csproj", "{8DA340AD-E241-4768-9E32-C983482B264A}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -51,6 +53,10 @@ Global
 		{EE6C9898-11DA-4157-A621-3578097A7067}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{EE6C9898-11DA-4157-A621-3578097A7067}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{EE6C9898-11DA-4157-A621-3578097A7067}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8DA340AD-E241-4768-9E32-C983482B264A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8DA340AD-E241-4768-9E32-C983482B264A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8DA340AD-E241-4768-9E32-C983482B264A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8DA340AD-E241-4768-9E32-C983482B264A}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
