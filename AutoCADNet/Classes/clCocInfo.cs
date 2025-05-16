@@ -26,6 +26,7 @@ namespace AutoCADNet.Classes
             }
         }
 
+
         private double? _Diameter = null;
         public double? Diameter
         {

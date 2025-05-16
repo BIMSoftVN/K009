@@ -4,6 +4,7 @@ using Autodesk.AutoCAD.DatabaseServices;
 using Autodesk.AutoCAD.EditorInput;
 using Autodesk.AutoCAD.Runtime;
 using System.Collections.Generic;
+using System.Linq;
 using Application = Autodesk.AutoCAD.ApplicationServices.Application;
 
 namespace AutoCADNet.TKC
@@ -37,6 +38,7 @@ namespace AutoCADNet.TKC
                         var sset = res.Value;
 
                         List<clCocInfo> cocList = new List<clCocInfo>();
+                        List<DBText> textList = new List<DBText>();
 
                         foreach (SelectedObject e in sset)
                         {
@@ -53,7 +55,65 @@ namespace AutoCADNet.TKC
 
                                 cocList.Add(coc);
                             }
+                            else
+                            {
+                                var oText = tr.GetObject(e.ObjectId, OpenMode.ForRead) as DBText;
+                                if (oText != null)
+                                {
+                                   textList.Add(oText);
+                                }
+                            }    
+
                         }    
+                    
+                        if (textList.Count>0)
+                        {
+                            foreach (var text in textList)
+                            {
+                                var cocList_NoName = cocList.Where(o => string.IsNullOrEmpty(o.Name));
+                                if (cocList_NoName !=null && cocList_NoName.Count()>0)
+                                {
+                                    var Nested_Coc = cocList_NoName.OrderBy(o => o.Orgin.DistanceTo(text.Position)).First();
+                                    Nested_Coc.Name = text.TextString;
+                                    Nested_Coc.Distance = Nested_Coc.Orgin.DistanceTo(text.Position);
+                                }   
+                                else
+                                {
+                                    break;
+                                }    
+                            }    
+                        }  
+                        
+                        var win = new vMain();
+                        var winDataContext = (win.DataContext as vmMain);
+
+                        winDataContext.BlockSource.Clear();
+                        winDataContext.cocSource.Clear();
+
+                        var blockTable = tr.GetObject(aDb.BlockTableId, OpenMode.ForRead) as BlockTable;
+                        if ( blockTable!=null)
+                        {
+                            foreach (var blockId in blockTable)
+                            {
+                                BlockTableRecord blockRec = tr.GetObject(blockId, OpenMode.ForRead) as BlockTableRecord;
+                                if (blockRec!=null)
+                                {
+                                    if (!blockRec.Name.StartsWith("*"))
+                                    {
+                                        var block = new clBlockInfo
+                                        {
+                                            Id = blockRec.ObjectId,
+                                            Name = blockRec.Name
+                                        };
+                                        winDataContext.BlockSource.Add(block);
+                                    }    
+                                }
+                            }    
+                        }
+
+                        winDataContext.cocSource.AddRange(cocList);
+
+                        win.Show();
                     }    
                 }    
             }
