@@ -85,18 +85,19 @@ namespace AutoCADNet.TKC
                         }  
                         
                         var win = new vMain();
+
                         var winDataContext = (win.DataContext as vmMain);
 
                         winDataContext.BlockSource.Clear();
                         winDataContext.cocSource.Clear();
 
                         var blockTable = tr.GetObject(aDb.BlockTableId, OpenMode.ForRead) as BlockTable;
-                        if ( blockTable!=null)
+                        if (blockTable != null)
                         {
                             foreach (var blockId in blockTable)
                             {
                                 BlockTableRecord blockRec = tr.GetObject(blockId, OpenMode.ForRead) as BlockTableRecord;
-                                if (blockRec!=null)
+                                if (blockRec != null)
                                 {
                                     if (!blockRec.Name.StartsWith("*"))
                                     {
@@ -105,10 +106,11 @@ namespace AutoCADNet.TKC
                                             Id = blockRec.ObjectId,
                                             Name = blockRec.Name
                                         };
+
                                         winDataContext.BlockSource.Add(block);
-                                    }    
+                                    }
                                 }
-                            }    
+                            }
                         }
 
                         winDataContext.cocSource.AddRange(cocList);

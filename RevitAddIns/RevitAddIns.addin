@@ -1,0 +1,11 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<RevitAddIns>
+	<AddIn Type="Command">
+		<Name>Chọn cột Revit</Name>
+		<Assembly>RevitAddIns\RevitAddIns.dll</Assembly>
+		<FullClassName>RevitAddIns.AssignBIMId</FullClassName>
+		<AddInId>00f96f8b-12f0-4170-9074-a02edaf5cf83</AddInId>
+		<VendorId>KSD</VendorId>
+		<VendorDescription>https://kysudo.com</VendorDescription>
+	</AddIn>
+</RevitAddIns>
