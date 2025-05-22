@@ -8,4 +8,13 @@
 		<VendorId>KSD</VendorId>
 		<VendorDescription>https://kysudo.com</VendorDescription>
 	</AddIn>
+
+	<AddIn Type="Application">
+		<Name>K009RevitAddIns</Name>
+		<Assembly>RevitAddIns\RevitAddIns.dll</Assembly>
+		<FullClassName>RevitAddIns.App</FullClassName>
+		<AddInId>a2685c16-8f32-453f-a24b-92ed617fa636</AddInId>
+		<VendorId>KSD</VendorId>
+		<VendorDescription>https://kysudo.com</VendorDescription>
+	</AddIn>
 </RevitAddIns>
