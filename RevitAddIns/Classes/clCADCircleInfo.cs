@@ -52,6 +52,7 @@ namespace RevitAddIns.Classes
             }
         }
 
+
         private double? _Diameter = null;
         public double? Diameter
         {

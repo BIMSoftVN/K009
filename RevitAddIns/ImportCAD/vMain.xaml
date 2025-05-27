@@ -6,6 +6,7 @@
              xmlns:local="clr-namespace:RevitAddIns.ImportCAD" xmlns:b="http://schemas.microsoft.com/xaml/behaviors"
         mc:Ignorable="d" 
              d:DesignHeight="450" d:DesignWidth="800"
+        Width="700"
         Title="{Binding LinkCAD.Category.Name, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
     <Window.DataContext>
         <local:vmMain/>
@@ -21,13 +22,22 @@
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="1*"/>
             <ColumnDefinition Width="5"/>
-            <ColumnDefinition Width="Auto"/>
+            <ColumnDefinition Width="200"/>
         </Grid.ColumnDefinitions>
 
         <GridSplitter Grid.Column="1" Width="5" 
                       HorizontalAlignment="Stretch"/>
         
-        <dxg:GridControl />
+        <dxg:GridControl AutoGenerateColumns="AddNew"
+                         SelectionMode="Row"
+                         SelectedItems="{Binding CADSelect, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"
+            ItemsSource="{Binding CADList, Mode=OneWay, UpdateSourceTrigger=PropertyChanged}">
+            <dxg:GridControl.View>
+                <dxg:TableView AllowEditing="False">
+                    
+                </dxg:TableView>
+            </dxg:GridControl.View>
+        </dxg:GridControl>
         
         <StackPanel Grid.Column="2" Margin="10">
             <ComboBox Width="150"
@@ -40,6 +50,7 @@
             <TextBlock Text="{Binding FamilySelect.Diameter, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
 
             <Button Content="Import"
+                    Command="{Binding ImportCADCommand}"
                     Margin="0,5"/>
         </StackPanel>
 
